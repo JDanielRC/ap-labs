@@ -13,6 +13,9 @@ Build Requirements
 ------------------
 ```
 # Build Requirements here
+- Visual Studio Code
+- Python 3.6 or higher
+- VIsual Studio required extensions
 ```
 
 
@@ -20,6 +23,7 @@ How to build
 ------------
 ```
 # instructions here
+- Open py file in visual studio
 ```
 
 
@@ -27,6 +31,7 @@ How to Run
 ----------
 ```
 # instructions here
+- Run code with visual studio aid
 ```
 
 
