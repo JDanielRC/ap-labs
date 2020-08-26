@@ -1,6 +1,20 @@
 #include <stdio.h>
+#include <string.h>
 
-int main(){
-    // Place your magic here
-    return 0;
+void reverse(char c){
+    if (c != '\n'){
+        reverse(getchar());
+    }
+    putchar(c);
+    return;
+}
+
+void main(int argc, char **argv){
+    char c;
+    
+    while ((c = getchar()) != EOF){
+        printf("palabra invertida: ");
+        reverse(c);
+        putchar('\n');
+    }
 }
