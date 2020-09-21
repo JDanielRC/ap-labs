@@ -45,7 +45,7 @@ type Path []Point
 func generatePoint() Point {
 	seed := rand.NewSource(time.Now().UnixNano())
 	random := rand.New(seed)
-	return Point{math.Round(random.Float64() * 100), math.Round(random.Float64() * 100)}
+	return Point{math.Round((((random.Float64() * 200) - 100) * 100) / 100), math.Round((((random.Float64() * 200) - 100) * 100) / 100)}
 }
 
 func orientation(p, q, r Point) int {
