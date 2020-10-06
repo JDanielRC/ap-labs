@@ -14,7 +14,7 @@ int inotifyFd, wd;
 //used from: https://linux.die.net/man/3/nftw
 static int display_info(const char *fpath, const struct stat *sb, int tflag, struct FTW *ftwbuf)
 {
-    if(tflag == FTW_D && ftwbuf->level <= 2){ //check for level, either one mentioned or one above
+    if(tflag == FTW_D && ftwbuf->level < 2){ //check for level, either one mentioned or one above
          wd = inotify_add_watch(inotifyFd, fpath, IN_CREATE | IN_DELETE | IN_MOVE);
         if (wd == -1)
             errorf("inotify_add_watch");
