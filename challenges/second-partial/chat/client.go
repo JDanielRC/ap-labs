@@ -7,6 +7,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"log"
 	"net"
@@ -15,10 +16,14 @@ import (
 
 //!+
 func main() {
-	conn, err := net.Dial("tcp", "localhost:8000")
+	if len(os.Args) != 5 {
+		log.Fatal("Incorrect usage of client.go, correct usage is: client.go -user [username] -server localhost:[port number]")
+	}
+	conn, err := net.Dial("tcp", os.Args[4])
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Fprintf(conn, os.Args[2])
 	done := make(chan struct{})
 	go func() {
 		io.Copy(os.Stdout, conn) // NOTE: ignoring errors
